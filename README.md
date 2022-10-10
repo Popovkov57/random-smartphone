@@ -16,6 +16,7 @@ git clone https://github.com/Popovkov57/random-smartphone.git
 5. Click on `Browse project` and open `random-smartphone` folder
 6. Click on `Finish`
 
+## Endpoints
 | Description  | Method | Url |
 | ------------- |:-------------:|:-------------:|
 | Get list of all smartphones | GET | `/smartphone` |
