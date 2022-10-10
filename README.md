@@ -16,6 +16,10 @@ git clone https://github.com/Popovkov57/random-smartphone.git
 5. Click on `Browse project` and open `random-smartphone` folder
 6. Click on `Finish`
 
+| Description  | Method | Url |
+| ------------- |:-------------:|:-------------:|
+| Fetch smartphones list | GET | `/smartphone` |
+
 ## Contributors
 <a href="https://github.com/Popovkov57/random-smartphone/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Popovkov57/random-smartphone" />
