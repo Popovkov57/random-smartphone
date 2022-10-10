@@ -1,11 +1,3 @@
-CREATE TABLE smartphones (
-    id int auto_increment primary key,
-    brand varchar(255),
-    model varchar(255),
-    details varchar(255),
-    released date
-);
-
 INSERT INTO smartphones (brand, model, details, released) VALUES ('Apple', 'iPhone SE 5G 2022 3rd gen A2784 Dual SIM TD-LTE RU KZ 256GB', 'From livestreaming to multiplayer gaming to video sharing, 5G really speeds things up. Top iPhone SE 2022 variant with 4 / 256 GB memory for Russia, Armenia, Belarus, Kazakhstan and Kyrgyzstan', '2022-03-08');
 INSERT INTO smartphones (brand, model, details, released) VALUES ('Xiaomi', 'Redmi K50 Gaming 5G Standard Edition Dual SIM TD-LTE 128GB 21121210C / K50G', 'The 6.67-inch AMOLED display has been specially designed for gaming, with optimal colour accuracy, brightness and feel. The most affordable Chinese variant of Redmi K50G gamer smartphone with 8 / 128 GB memory', '2022-02-01');
 INSERT INTO smartphones (brand, model, details, released) VALUES ('Samsung', 'SM-E236B/DS Galaxy F23 5G 2022 Standard Edition Dual SIM TD-LTE IN 128GB', 'Incorporating a Power Cool technology, it helps to keep your phone cool even when you are engaged to binge gaming sessions for extended hours', '2022-03-08');
