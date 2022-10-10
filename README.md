@@ -18,7 +18,8 @@ git clone https://github.com/Popovkov57/random-smartphone.git
 
 | Description  | Method | Url |
 | ------------- |:-------------:|:-------------:|
-| Fetch smartphones list | GET | `/smartphone` |
+| Get list of all smartphones | GET | `/smartphone` |
+| Get smartphone by Id | GET | `/smartphone/<id>` |
 
 ## Contributors
 <a href="https://github.com/Popovkov57/random-smartphone/graphs/contributors">

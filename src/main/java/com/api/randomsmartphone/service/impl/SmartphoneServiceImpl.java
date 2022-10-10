@@ -20,4 +20,8 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 		return repository.findAll();
 	}
 
+	@Override
+	public Smartphone fetchSmartphoneById(Long id) {
+		return repository.getReferenceById(id);
+	}
 }

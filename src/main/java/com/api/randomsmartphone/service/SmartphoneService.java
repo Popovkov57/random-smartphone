@@ -7,4 +7,6 @@ import com.api.randomsmartphone.model.Smartphone;
 public interface SmartphoneService {
 
 	List<Smartphone> fetchSmartphonesList();
+	
+	Smartphone fetchSmartphoneById(Long id);
 }
