@@ -35,4 +35,9 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 		);
 		return repository.save(newSmartphone);
 	}
+
+	@Override
+	public void deleteSmartphoneById(Long id) {
+		repository.deleteById(id);
+	}
 }

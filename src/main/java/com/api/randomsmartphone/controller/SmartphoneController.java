@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,5 +34,10 @@ public class SmartphoneController {
     @PostMapping("/smartphone")
     public Smartphone createSmartphone(@RequestBody Smartphone smarphone) {
     	return smartphoneService.createSmartphone(smarphone);
+    }
+    
+    @DeleteMapping("/smartphone/{id}")
+    public void deleteSmartphoneById(@PathVariable Long id) {
+    	smartphoneService.deleteSmartphoneById(id);
     }
 }
