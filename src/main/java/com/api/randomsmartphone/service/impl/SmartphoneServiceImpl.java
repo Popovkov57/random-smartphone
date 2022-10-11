@@ -24,4 +24,15 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 	public Smartphone fetchSmartphoneById(Long id) {
 		return repository.getReferenceById(id);
 	}
+
+	@Override
+	public Smartphone createSmartphone(Smartphone smartphone) {
+		Smartphone newSmartphone = new Smartphone(
+				smartphone.getBrand(),
+				smartphone.getModel(),
+				smartphone.getDetails(),
+				smartphone.getReleased()
+		);
+		return repository.save(newSmartphone);
+	}
 }

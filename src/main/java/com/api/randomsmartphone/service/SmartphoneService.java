@@ -9,4 +9,6 @@ public interface SmartphoneService {
 	List<Smartphone> fetchSmartphonesList();
 	
 	Smartphone fetchSmartphoneById(Long id);
+	
+	Smartphone createSmartphone(Smartphone smartphone);
 }
