@@ -37,6 +37,19 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 	}
 
 	@Override
+	public void updateSmartphone(Smartphone smartphone) {
+		repository.findById(smartphone.getId()).ifPresent(updatedSmartphone -> {
+			System.out.println(updatedSmartphone.toString());
+			updatedSmartphone.setId(smartphone.getId());
+			updatedSmartphone.setBrand(smartphone.getBrand());
+			updatedSmartphone.setModel(smartphone.getModel());
+			updatedSmartphone.setDetails(smartphone.getDetails());
+			
+			repository.save(updatedSmartphone);
+		});
+	}
+
+	@Override
 	public void deleteSmartphoneById(Long id) {
 		repository.deleteById(id);
 	}

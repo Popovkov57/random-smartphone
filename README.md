@@ -22,6 +22,7 @@ git clone https://github.com/Popovkov57/random-smartphone.git
 | Get list of all smartphones | GET | `/smartphone` |
 | Get smartphone by Id | GET | `/smartphone/<id>` |
 | Create smartphone | POST | `/smartphone` |
+| Update smartphone | UPDATE | `/smartphone` |
 | Delete smartphone by Id | DELETE | `/smartphone/<id>` |
 
 ## Contributors

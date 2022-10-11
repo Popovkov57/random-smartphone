@@ -12,5 +12,7 @@ public interface SmartphoneService {
 	
 	Smartphone createSmartphone(Smartphone smartphone);
 	
+	void updateSmartphone(Smartphone smartphone);
+	
 	void deleteSmartphoneById(Long id);
 }
