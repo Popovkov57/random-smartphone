@@ -3,8 +3,10 @@ package com.api.randomsmartphone.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.api.randomsmartphone.exception.ResourceNotFoundException;
 import com.api.randomsmartphone.model.Smartphone;
 import com.api.randomsmartphone.repository.SmartphoneRepository;
 import com.api.randomsmartphone.service.SmartphoneService;
@@ -21,8 +23,12 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 	}
 
 	@Override
-	public Smartphone fetchSmartphoneById(Long id) {
-		return repository.getReferenceById(id);
+	public ResponseEntity<Smartphone> fetchSmartphoneById(Long id) {
+		
+		Smartphone smartphone = repository.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Smartphone with ID: " + id + " not found !"));
+		
+		return ResponseEntity.ok().body(smartphone);
 	}
 
 	@Override
@@ -37,20 +43,20 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 	}
 
 	@Override
-	public void updateSmartphone(Smartphone smartphone) {
-		repository.findById(smartphone.getId()).ifPresent(updatedSmartphone -> {
-			System.out.println(updatedSmartphone.toString());
-			updatedSmartphone.setId(smartphone.getId());
-			updatedSmartphone.setBrand(smartphone.getBrand());
-			updatedSmartphone.setModel(smartphone.getModel());
-			updatedSmartphone.setDetails(smartphone.getDetails());
-			
-			repository.save(updatedSmartphone);
-		});
+	public ResponseEntity<Smartphone> updateSmartphone(Long id, Smartphone smartphone) {
+		Smartphone psmartphone = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Smartphone with ID: " + id + " not found !"));
+		smartphone.setId(psmartphone.getId());
+		repository.save(smartphone);
+		return ResponseEntity.ok(smartphone);
 	}
 
 	@Override
-	public void deleteSmartphoneById(Long id) {
-		repository.deleteById(id);
+	public ResponseEntity<String> deleteSmartphoneById(Long id) {
+		Smartphone smartphone = repository.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Smartphone with ID: " + id + " not found !"));
+		repository.deleteById(smartphone.getId());
+		return ResponseEntity.ok("Smartphone deleted with success!");
+		
 	}
 }

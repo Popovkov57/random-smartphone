@@ -3,6 +3,7 @@ package com.api.randomsmartphone.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public class SmartphoneController {
     }
     
     @GetMapping("/smartphone/{id}")
-    public Smartphone fetchSmartphoneById(@PathVariable Long id) {
+    public ResponseEntity<Smartphone> fetchSmartphoneById(@PathVariable Long id) {
     	return smartphoneService.fetchSmartphoneById(id);
     }
     
@@ -37,13 +38,13 @@ public class SmartphoneController {
     	return smartphoneService.createSmartphone(smarphone);
     }
     
-    @PutMapping("/smartphone")
-    public void updateSmartphone(@RequestBody Smartphone smartphone) {
-    	smartphoneService.updateSmartphone(smartphone);
+    @PutMapping("/smartphone/{id}")
+    public ResponseEntity<Smartphone> updateSmartphone(@PathVariable Long id, @RequestBody Smartphone smartphone) {
+    	return smartphoneService.updateSmartphone(id, smartphone);
     }
     
     @DeleteMapping("/smartphone/{id}")
-    public void deleteSmartphoneById(@PathVariable Long id) {
-    	smartphoneService.deleteSmartphoneById(id);
+    public ResponseEntity<String> deleteSmartphoneById(@PathVariable Long id) {
+    	return smartphoneService.deleteSmartphoneById(id);
     }
 }
