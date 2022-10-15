@@ -11,9 +11,16 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.experimental.NonFinal;
+
 @Entity
 @Table(name = "smartphones")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Data
+@NoArgsConstructor
 public class Smartphone {
 
 	@Id
@@ -22,69 +29,21 @@ public class Smartphone {
 	private Long id;
 	
 	@Column(name = "brand")
-	private String brand;
+	@NonNull String brand;
 	
 	@Column(name = "model")
-	private String model;
+	@NonFinal String model;
 	
 	@Column(name = "details")
-	private String details;
+	@NonNull String details;
 	
 	@Column(name = "released")
-	private Date released;
+	@NonNull Date released;
 
-	public Smartphone() {}
-	
-	public Smartphone(String brand, String model, String details, Date released) {
+	public Smartphone(@NonNull String brand, String model, @NonNull String details, @NonNull Date released) {
 		this.brand = brand;
 		this.model = model;
 		this.details = details;
 		this.released = released;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getBrand() {
-		return brand;
-	}
-	
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-	
-	public String getModel() {
-		return model;
-	}
-	
-	public void setModel(String model) {
-		this.model = model;
-	}
-	
-	public String getDetails() {
-		return details;
-	}
-	
-	public void setDetails(String details) {
-		this.details = details;
-	}
-	
-	public Date getReleased() {
-		return released;
-	}
-	
-	public void setReleased(Date released) {
-		this.released = released;
-	}
-
-	@Override
-	public String toString() {
-		return "Smartphone [id=" + id + ", brand=" + brand + ", model=" + model + ", details=" + details + ", released="
-				+ released + "]";
 	}
 }
