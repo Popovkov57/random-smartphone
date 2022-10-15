@@ -47,4 +47,9 @@ public class SmartphoneController {
     public ResponseEntity<String> deleteSmartphoneById(@PathVariable Long id) {
     	return smartphoneService.deleteSmartphoneById(id);
     }
+    
+    @GetMapping("/smartphone/random")
+    public ResponseEntity<Smartphone> getRandomSmartphone() { 
+        return smartphoneService.getRandomSmartphone();
+    }
 }

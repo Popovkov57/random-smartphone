@@ -1,6 +1,7 @@
 package com.api.randomsmartphone.service.impl;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -57,6 +58,12 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 				.orElseThrow(()-> new ResourceNotFoundException("Smartphone with ID: " + id + " not found !"));
 		repository.deleteById(smartphone.getId());
 		return ResponseEntity.ok("Smartphone deleted with success!");
-		
+	}
+
+	@Override
+	public ResponseEntity<Smartphone> getRandomSmartphone() {
+		Random random = new Random();
+		List<Smartphone> list = repository.findAll();
+		return ResponseEntity.ok(list.get(random.nextInt(list.size())));
 	}
 }

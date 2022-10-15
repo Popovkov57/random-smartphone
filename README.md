@@ -24,6 +24,7 @@ git clone https://github.com/Popovkov57/random-smartphone.git
 | Create smartphone | POST | `/smartphone` |
 | Update smartphone | UPDATE | `/smartphone` |
 | Delete smartphone by Id | DELETE | `/smartphone/<id>` |
+| Get Random smartphone | GET | `/smartphone/random` |
 
 ## Contributors
 <a href="https://github.com/Popovkov57/random-smartphone/graphs/contributors">

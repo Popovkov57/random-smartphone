@@ -17,4 +17,6 @@ public interface SmartphoneService {
 	ResponseEntity<Smartphone> updateSmartphone(Long id, Smartphone smartphone);
 	
 	ResponseEntity<String> deleteSmartphoneById(Long id);
+	
+	ResponseEntity<Smartphone> getRandomSmartphone();
 }
