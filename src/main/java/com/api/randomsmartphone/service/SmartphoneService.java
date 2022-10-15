@@ -8,7 +8,7 @@ import com.api.randomsmartphone.model.Smartphone;
 
 public interface SmartphoneService {
 
-	List<Smartphone> fetchSmartphonesList();
+	List<Smartphone> fetchSmartphonesList(String sortBy);
 	
 	ResponseEntity<Smartphone> fetchSmartphoneById(Long id);
 	

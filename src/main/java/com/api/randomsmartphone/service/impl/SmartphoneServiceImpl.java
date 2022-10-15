@@ -1,8 +1,12 @@
 package com.api.randomsmartphone.service.impl;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,6 +15,7 @@ import com.api.randomsmartphone.exception.ResourceNotFoundException;
 import com.api.randomsmartphone.model.Smartphone;
 import com.api.randomsmartphone.repository.SmartphoneRepository;
 import com.api.randomsmartphone.service.SmartphoneService;
+import com.api.randomsmartphone.utils.SortSmartphoneByName;
 
 @Service
 public class SmartphoneServiceImpl implements SmartphoneService {
@@ -18,9 +23,15 @@ public class SmartphoneServiceImpl implements SmartphoneService {
 	@Autowired
 	private SmartphoneRepository repository;
 	
+	Logger logger = LoggerFactory.getLogger(SmartphoneServiceImpl.class);
+	
 	@Override
-	public List<Smartphone> fetchSmartphonesList() {
-		return repository.findAll();
+	public List<Smartphone> fetchSmartphonesList(String sortByName) {
+		List<Smartphone> list = repository.findAll();
+		if(sortByName != null) {
+			Collections.sort(list, new SortSmartphoneByName(sortByName));
+		}
+		return list;
 	}
 
 	@Override
